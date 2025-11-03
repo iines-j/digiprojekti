@@ -49,6 +49,11 @@ This game is aimed for casual game players, who enjoy nature and all its cute cr
 The player will start off with a basic camera and access to one nature area.
 Gear upgrades will make the quality of photos better and earn the player more money. Some skittish animals may not appear at all or be spooked away if the player has the wrong kind of gear. The player has to consider what kind of gear is the best to photograph certain animals (such as zoom lens for animals that wont let you get very close, macro lens for bugs etc). Animal appearances will vary based on animal rarity and preferences (biome, season, weather). Photos taken by the player can be saved to the nature journal, where each different type of animal has their own entry with basic information about it, and the date of first observation. 
 
+Gameflow   |  System loop
+:-------------------------:|:-------------------------:
+ <img src="https://github.com/user-attachments/assets/86d81ee2-e5f8-4c7f-b676-c308e7313998" width="500"></img>  |   <img src="https://github.com/user-attachments/assets/af8d92f9-8f9c-4bc3-a815-b4237669c997" width="500"></img>
+
+
 ### Minimum Viable Product
 1. UI / Main menu
 2. Nature area 1
