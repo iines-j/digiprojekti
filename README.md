@@ -28,7 +28,7 @@ Animal Crossing gave me the idea of animals appearing based on different natural
 </p>
 
 ### Player Experience
-In Wild Archive, the player can enjoy the calmig sounds of nature, photograph cute animals, and fill their nature journal. The player can earn money by taking pictures of the animals that appear. By upgrading their gear and unlocking new areas, the player will be able to photograph even more different kinds of animals.
+In Wild Archive, the player can enjoy the calming sounds of nature, photograph cute animals, and fill their nature journal. The player can earn money by taking pictures of the animals that appear. By upgrading their gear and unlocking new areas, the player will be able to photograph even more different kinds of animals.
 
 ### Platform
 Windows PC
