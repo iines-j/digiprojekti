@@ -1,5 +1,5 @@
 
-# Wild Archive - **GAME DESIGN DOCUMENT**
+# Wild Archive - **Design Document**
 
 ## Introduction
 
