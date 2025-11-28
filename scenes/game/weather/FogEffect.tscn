@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://mrpiiwbr15yd"]
+
+[ext_resource type="Shader" path="res://scenes/game/weather/fog.gdshader" id="1_tnlg2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nmij0"]
+shader = ExtResource("1_tnlg2")
+shader_parameter/base_color = Color(0.58646595, 0.8351645, 0.99375015, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_a5ws6"]
+frequency = 0.0063
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_djaxn"]
+noise = SubResource("FastNoiseLite_a5ws6")
+seamless = true
+normalize = false
+
+[node name="FogEffect" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_nmij0")
+offset_right = 1145.0
+offset_bottom = 645.0
+texture = SubResource("NoiseTexture2D_djaxn")

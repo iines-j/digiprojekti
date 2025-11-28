@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://cte754lmekyof"]
+
+[ext_resource type="Theme" uid="uid://dafi18xvkmxyb" path="res://scenes/Main Menu.tres" id="1_0ykhv"]
+[ext_resource type="Script" uid="uid://c1uf4jrn51ymp" path="res://scenes/main_menu/main_menu.gd" id="2_2wh52"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ism2r"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.38097394, 0.6823694, 0.39906564, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 0.21960784)
+shadow_size = 2
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_estw7"]
+bg_color = Color(0.57708883, 0.57648927, 0.78322387, 1)
+
+[sub_resource type="Theme" id="Theme_estw7"]
+Button/styles/normal = SubResource("StyleBoxFlat_ism2r")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_estw7")
+VBoxContainer/constants/separation = 7
+
+[node name="MainMenu" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.5
+offset_top = -76.5
+offset_right = 91.5
+offset_bottom = 76.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_0ykhv")
+script = ExtResource("2_2wh52")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme = SubResource("Theme_estw7")
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Start"
+
+[node name="Options" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

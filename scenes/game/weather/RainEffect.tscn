@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfg4adnk4ac87"]
+
+[ext_resource type="Texture2D" uid="uid://chono07tnf777" path="res://scenes/game/weather/rain.png" id="1_yapjb"]
+
+[sub_resource type="Gradient" id="Gradient_hukn1"]
+offsets = PackedFloat32Array(0.1780822, 1)
+colors = PackedColorArray(0.7476796, 0.7476796, 0.7476796, 1, 0.7309131, 0.7309131, 0.73091304, 1)
+
+[node name="RainEffect" type="Node2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(566, 134)
+rotation = -0.05683826
+amount = 27
+texture = ExtResource("1_yapjb")
+lifetime = 1.2
+preprocess = 2.0
+speed_scale = 3.0
+local_coords = true
+emission_shape = 3
+emission_rect_extents = Vector2(1000, 500)
+direction = Vector2(0, 1)
+spread = 0.0
+initial_velocity_min = 20.0
+initial_velocity_max = 200.0
+scale_amount_min = 0.1
+scale_amount_max = 0.6
+split_scale = true
+scale_curve_x = null
+scale_curve_y = null
+color = Color(0.446777, 0.44677705, 0.44677705, 1)
+color_ramp = SubResource("Gradient_hukn1")
