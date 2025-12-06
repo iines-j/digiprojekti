@@ -46,7 +46,7 @@ _data = {
 
 [sub_resource type="Curve2D" id="Curve2D_365ku"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 861, 776, 0, 0, 0, 0, 544, 469, 0, 0, 0, 0, 271, 506, 0, 0, 0, 0, -526, 733)
+"points": PackedVector2Array(0, 0, 0, 0, 861, 776, 0, 0, 0, 0, 544, 469, 0, 0, 0, 0, 271, 506, 0, 0, 0, 0, -207, 662)
 }
 point_count = 4
 

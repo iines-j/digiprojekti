@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 global="*res://scenes/global.gd"
+AnimalTimers="*res://scenes/animals/animal_timers.gd"
+SignalBus="*res://scenes/signal_bus.gd"
 
 [display]
 
