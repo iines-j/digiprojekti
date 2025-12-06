@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dmnrjisvbh3f2"]
+[gd_scene load_steps=9 format=3 uid="uid://dmnrjisvbh3f2"]
 
 [ext_resource type="Texture2D" uid="uid://tn7nnv1teg68" path="res://raw_assets/unnamed.png" id="1_ibkli"]
 [ext_resource type="Script" uid="uid://wp4bxhujcbjw" path="res://scenes/game/game.gd" id="1_qbsmt"]
+[ext_resource type="Script" uid="uid://d2pswju2bn6cj" path="res://scenes/game/jackrabbit.gd" id="3_7qcb4"]
+[ext_resource type="PackedScene" uid="uid://b47f3tc3t7m22" path="res://scenes/animals/Jackrabbit.tscn" id="4_lyhax"]
 
 [sub_resource type="Animation" id="Animation_15ccc"]
 length = 0.001
@@ -40,6 +42,12 @@ _data = {
 &"RESET": SubResource("Animation_15ccc"),
 &"sun_cycle": SubResource("Animation_084i0")
 }
+
+[sub_resource type="Curve2D" id="Curve2D_365ku"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 861, 776, 0, 0, 0, 0, 544, 469, 0, 0, 0, 0, 271, 506, 0, 0, 0, 0, -207, 662)
+}
+point_count = 4
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_qbsmt")
@@ -81,5 +89,18 @@ expand_mode = 2
 stretch_mode = 5
 
 [node name="Animals" type="Node2D" parent="."]
-rotation = 3.1415927
-scale = Vector2(189.39326, -320.15192)
+
+[node name="Jackrabbit" type="Node2D" parent="Animals"]
+script = ExtResource("3_7qcb4")
+
+[node name="JackrabbitPath" type="Path2D" parent="Animals/Jackrabbit"]
+curve = SubResource("Curve2D_365ku")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Animals/Jackrabbit/JackrabbitPath"]
+position = Vector2(861, 776)
+rotation = -3.1148431
+rotates = false
+
+[node name="Jackrabbit2" parent="Animals/Jackrabbit/JackrabbitPath/PathFollow2D" instance=ExtResource("4_lyhax")]
+position = Vector2(39.22676, 7.9536743)
+rotation = 3.1148431

@@ -1,5 +1,6 @@
-[gd_scene load_steps=68 format=3 uid="uid://b47f3tc3t7m22"]
+[gd_scene load_steps=69 format=3 uid="uid://b47f3tc3t7m22"]
 
+[ext_resource type="Script" uid="uid://ijsunihwmwc" path="res://scenes/animals/jackrabbit.gd" id="1_63ml0"]
 [ext_resource type="Texture2D" uid="uid://d0b1avfs0mimw" path="res://raw_assets/rabbit/back leg upper_2.png" id="1_g0fkh"]
 [ext_resource type="Texture2D" uid="uid://dxa2h3y7dpuj1" path="res://raw_assets/rabbit/back leg mid_2.png" id="2_63ml0"]
 [ext_resource type="Texture2D" uid="uid://d2gv5666ddg58" path="res://raw_assets/rabbit/back leg lower_2.png" id="3_0mkr0"]
@@ -1713,6 +1714,7 @@ _data = {
 
 [node name="Jackrabbit" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_63ml0")
 
 [node name="CharacterContainer" type="Node2D" parent="."]
 scale = Vector2(0.1, 0.1)
@@ -1760,15 +1762,15 @@ offset = Vector2(-44, -6.5)
 
 [node name="FrontLegLower2" type="Sprite2D" parent="CharacterContainer/Body/X FrontLeg"]
 position = Vector2(204.84114, 277.91266)
-rotation = 0.37500095
-scale = Vector2(0.9999986, 0.9999986)
+rotation = 0.37500092
+scale = Vector2(0.9999985, 0.9999985)
 texture = ExtResource("6_l11gb")
 offset = Vector2(1, 144.5)
 
 [node name="FrontPaw2" type="Sprite2D" parent="CharacterContainer/Body/X FrontLeg"]
-position = Vector2(107.84769, 570.7351)
-rotation = -0.058023777
-scale = Vector2(0.99999857, 0.99999857)
+position = Vector2(107.8477, 570.7351)
+rotation = -0.058023818
+scale = Vector2(0.9999985, 0.9999985)
 texture = ExtResource("7_qjflo")
 offset = Vector2(-62.229584, 20.233582)
 
@@ -1797,22 +1799,22 @@ offset = Vector2(40.9942, 69.12403)
 
 [node name="BackLegMid" type="Sprite2D" parent="CharacterContainer/Body/BackLeg"]
 position = Vector2(1013.2325, 507.87082)
-rotation = -0.2430192
-scale = Vector2(0.99999845, 0.99999845)
+rotation = -0.24301916
+scale = Vector2(0.9999978, 0.9999978)
 texture = ExtResource("11_pud7i")
 offset = Vector2(104.08362, -65.57568)
 
 [node name="BackLegLower" type="Sprite2D" parent="CharacterContainer/Body/BackLeg"]
-position = Vector2(1205.6726, 328.2864)
-rotation = 0.38845178
-scale = Vector2(0.9999979, 0.9999979)
+position = Vector2(1205.6726, 328.28653)
+rotation = 0.3884518
+scale = Vector2(0.9999973, 0.9999973)
 texture = ExtResource("12_5xv4c")
 offset = Vector2(-10.78772, 169.71524)
 
 [node name="BackPaw" type="Sprite2D" parent="CharacterContainer/Body/BackLeg"]
-position = Vector2(1096.4993, 653.1382)
-rotation = 0.2865223
-scale = Vector2(0.99999714, 0.99999714)
+position = Vector2(1096.4993, 653.13806)
+rotation = 0.28652185
+scale = Vector2(0.9999965, 0.9999965)
 texture = ExtResource("13_7k6x2")
 offset = Vector2(-85.25391, 28.619232)
 
@@ -1820,15 +1822,15 @@ offset = Vector2(-85.25391, 28.619232)
 
 [node name="FrontLegLower" type="Sprite2D" parent="CharacterContainer/Body/FrontLeg"]
 position = Vector2(348.5606, 383.14792)
-rotation = 0.37382242
-scale = Vector2(0.99995655, 0.99995655)
+rotation = 0.37382236
+scale = Vector2(0.9999565, 0.9999565)
 texture = ExtResource("14_ls72n")
 offset = Vector2(-28, 131.5)
 
 [node name="FrontLegUpper" type="Sprite2D" parent="CharacterContainer/Body/FrontLeg"]
 position = Vector2(268.98508, 147.11781)
-rotation = -0.08603736
-scale = Vector2(0.99997973, 0.99997973)
+rotation = -0.08603744
+scale = Vector2(0.9999796, 0.9999796)
 texture = ExtResource("15_duedd")
 offset = Vector2(-1, 70.5)
 
@@ -1849,16 +1851,16 @@ offset = Vector2(-51, -73)
 [node name="Head" type="Node2D" parent="CharacterContainer/Body"]
 
 [node name="EarLeft" type="Sprite2D" parent="CharacterContainer/Body/Head"]
-position = Vector2(-24.875572, -566.9219)
-rotation = 0.47935674
-scale = Vector2(0.99999785, 0.99999785)
+position = Vector2(-24.875519, -566.9219)
+rotation = 0.4793569
+scale = Vector2(0.9999977, 0.9999977)
 texture = ExtResource("18_qh3gv")
 offset = Vector2(-51, -157)
 
 [node name="face" type="Sprite2D" parent="CharacterContainer/Body/Head"]
 position = Vector2(107.06859, -307.52646)
-rotation = 0.18387525
-scale = Vector2(0.9999985, 0.9999985)
+rotation = 0.1838754
+scale = Vector2(0.9999983, 0.9999983)
 texture = ExtResource("19_7xdma")
 offset = Vector2(-161, -20)
 
@@ -1867,9 +1869,9 @@ position = Vector2(-170.04665, -29.020004)
 texture = ExtResource("20_5fm8d")
 
 [node name="EarRight" type="Sprite2D" parent="CharacterContainer/Body/Head"]
-position = Vector2(97.27339, -522.4104)
-rotation = 0.34563446
-scale = Vector2(0.99999833, 0.99999833)
+position = Vector2(97.273415, -522.41034)
+rotation = 0.34563458
+scale = Vector2(0.9999983, 0.9999983)
 texture = ExtResource("21_hsqow")
 offset = Vector2(5.409729, -203.09433)
 
@@ -1965,12 +1967,12 @@ rest = Transform2D(0.9898563, 0.14207219, -0.14207219, 0.9898563, -648, 205)
 [node name="frontleg lower" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/hip/x Front"]
 position = Vector2(72, 197)
 rotation = 0.2928612
-scale = Vector2(0.99999934, 0.99999934)
+scale = Vector2(0.9999993, 0.9999993)
 rest = Transform2D(0.9699712, 0.24321952, -0.24321952, 0.9699712, 72, 197)
 
 [node name="frontleg paw" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/hip/x Front/frontleg lower"]
 position = Vector2(17, 308)
-rotation = -0.4330247
+rotation = -0.43302473
 rest = Transform2D(0.884762, -0.46604314, 0.46604314, 0.884762, 17, 308)
 auto_calculate_length_and_angle = false
 length = 147.599
@@ -2001,8 +2003,8 @@ metadata/_custom_type_script = "uid://c20kgrku2joaj"
 
 [node name="BackMid" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/hip/BackLeg"]
 position = Vector2(136, 275)
-rotation = -0.026851155
-scale = Vector2(0.9999995, 0.9999995)
+rotation = -0.026851138
+scale = Vector2(0.9999989, 0.9999989)
 rest = Transform2D(0.8471506, 0.5313524, -0.5313524, 0.8471506, 136, 275)
 script = ExtResource("22_qj5ia")
 transform_mode = 0
@@ -2029,15 +2031,15 @@ metadata/_custom_type_script = "uid://c20kgrku2joaj"
 
 [node name="BackPaw" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/hip/BackLeg/BackMid/BackLow"]
 position = Vector2(22, 342)
-rotation = -0.10192949
-scale = Vector2(0.9999993, 0.9999993)
+rotation = -0.10192996
+scale = Vector2(0.99999917, 0.99999917)
 rest = Transform2D(0.9055367, -0.42426684, 0.42426684, 0.9055367, 22, 342)
 auto_calculate_length_and_angle = false
 length = 172.221
 bone_angle = -198.62094
 script = ExtResource("22_qj5ia")
 transform_mode = 0
-target_rotation = -0.10192949
+target_rotation = -0.10192997
 target_position = Vector2(22, 342)
 rotation_easing_params = SubResource("Resource_tc8v8")
 limit_rotation = true
@@ -2058,14 +2060,14 @@ remote_path = NodePath("../../../../../Body/BackLeg/BackLegUpper")
 
 [node name="frontleg upper" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/hip"]
 position = Vector2(-509, 216)
-rotation = -0.54505897
+rotation = -0.545059
 scale = Vector2(0.9999801, 0.9999801)
 rest = Transform2D(0.9919509, 0.1264662, -0.1264662, 0.9919509, -509, 216)
 
 [node name="frontleg lower" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/hip/frontleg upper"]
 position = Vector2(59, 242)
-rotation = 0.45985976
-scale = Vector2(0.9999768, 0.9999768)
+rotation = 0.4598598
+scale = Vector2(0.99997675, 0.99997675)
 rest = Transform2D(0.99949956, 0.030896645, -0.030896645, 0.99949956, 59, 242)
 
 [node name="frontleg paw" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/hip/frontleg upper/frontleg lower"]
@@ -2106,8 +2108,8 @@ metadata/_custom_type_script = "uid://c20kgrku2joaj"
 
 [node name="head" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/hip/neck2"]
 position = Vector2(-102, -207)
-rotation = -0.20616849
-scale = Vector2(0.9999989, 0.9999989)
+rotation = -0.20616837
+scale = Vector2(0.9999988, 0.9999988)
 rest = Transform2D(0.999992, -0.0039776894, 0.0039776894, 0.999992, -102, -207)
 script = ExtResource("22_qj5ia")
 transform_mode = 0
@@ -2143,7 +2145,7 @@ remote_path = NodePath("../../../../../../../Body/Head/EarRight")
 
 [node name="ear2" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/hip/neck2/head"]
 position = Vector2(-150, -215)
-rotation = 0.29548147
+rotation = 0.2954815
 scale = Vector2(0.99999934, 0.99999934)
 rest = Transform2D(0.79923004, -0.60102504, 0.60102504, 0.79923004, -150, -215)
 auto_calculate_length_and_angle = false
