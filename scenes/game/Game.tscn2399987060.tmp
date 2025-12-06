@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dmnrjisvbh3f2"]
+[gd_scene load_steps=7 format=3 uid="uid://dmnrjisvbh3f2"]
 
 [ext_resource type="Texture2D" uid="uid://tn7nnv1teg68" path="res://raw_assets/unnamed.png" id="1_ibkli"]
 [ext_resource type="Script" uid="uid://wp4bxhujcbjw" path="res://scenes/game/game.gd" id="1_qbsmt"]
+[ext_resource type="PackedScene" uid="uid://wxp477c41oec" path="res://scenes/animals/Rabbit.tscn" id="3_vrspl"]
 
 [sub_resource type="Animation" id="Animation_15ccc"]
 length = 0.001
@@ -64,6 +65,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 1.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.6901961, 0.9098039, 1, 1)
@@ -81,5 +84,6 @@ expand_mode = 2
 stretch_mode = 5
 
 [node name="Animals" type="Node2D" parent="."]
-rotation = 3.1415927
-scale = Vector2(189.39326, -320.15192)
+
+[node name="Rabbit" parent="Animals" instance=ExtResource("3_vrspl")]
+position = Vector2(21, -16)
