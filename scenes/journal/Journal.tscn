@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://drko03la3qfp7"]
+[gd_scene load_steps=13 format=3 uid="uid://drko03la3qfp7"]
 
 [ext_resource type="Script" uid="uid://cdjhedocmnumh" path="res://scenes/journal/journal.gd" id="1_gc37l"]
 [ext_resource type="Shader" uid="uid://bb0hrxknhq7xt" path="res://scenes/pause_menu/PauseMenu.gdshader" id="2_hdsod"]
@@ -6,6 +6,8 @@
 [ext_resource type="Animation" uid="uid://dynmqtpyys0vn" path="res://scenes/pause_menu/blur.res" id="3_s630r"]
 [ext_resource type="Texture2D" uid="uid://cw0pdl38ogpre" path="res://raw_assets/Grass-Buttons-arrow1.png" id="4_j4q1g"]
 [ext_resource type="Texture2D" uid="uid://dmq6l8et3ys7n" path="res://raw_assets/Grass-Buttons-arrow.png" id="5_hw8ob"]
+[ext_resource type="Texture2D" uid="uid://bqvmjdgpa04b6" path="res://raw_assets/Buttons-pressed-arrow1.png" id="5_wybpv"]
+[ext_resource type="Texture2D" uid="uid://bi3l4esdvl1h3" path="res://raw_assets/Buttons-pressed-arrow.png" id="7_ydywh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ig36j"]
 shader = ExtResource("2_hdsod")
@@ -17,6 +19,9 @@ corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
+shadow_color = Color(0.35, 0.2296, 0.048999995, 0.29803923)
+shadow_size = 12
+shadow_offset = Vector2(0, 2)
 
 [sub_resource type="Theme" id="Theme_ydywh"]
 Panel/styles/panel = SubResource("StyleBoxFlat_wybpv")
@@ -27,6 +32,7 @@ _data = {
 }
 
 [node name="Journal" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -105,7 +111,7 @@ layout_mode = 2
 mouse_filter = 2
 color = Color(1, 1, 1, 0)
 
-[node name="Button" type="Button" parent="PanelContainer/BookContainer/TopBarContainer"]
+[node name="Back" type="Button" parent="PanelContainer/BookContainer/TopBarContainer"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 size_flags_horizontal = 10
@@ -119,6 +125,7 @@ size_flags_vertical = 3
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 texture_normal = ExtResource("4_j4q1g")
+texture_pressed = ExtResource("5_wybpv")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -133,14 +140,69 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = SubResource("Theme_ydywh")
 
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/BookContainer/ContentContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="ContainerLeft" type="GridContainer" parent="PanelContainer/BookContainer/ContentContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 2
+
+[node name="Unit" type="HBoxContainer" parent="PanelContainer/BookContainer/ContentContainer/PanelContainer/HBoxContainer/ContainerLeft"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="DivLeft" type="ColorRect" parent="PanelContainer/BookContainer/ContentContainer/PanelContainer/HBoxContainer/ContainerLeft/Unit"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Content" type="VBoxContainer" parent="PanelContainer/BookContainer/ContentContainer/PanelContainer/HBoxContainer/ContainerLeft/Unit"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="PanelContainer/BookContainer/ContentContainer/PanelContainer/HBoxContainer/ContainerLeft/Unit/Content"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="PanelContainer/BookContainer/ContentContainer/PanelContainer/HBoxContainer/ContainerLeft/Unit/Content"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/BookContainer/ContentContainer/PanelContainer/HBoxContainer/ContainerLeft/Unit/Content/AspectRatioContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/BookContainer/ContentContainer/PanelContainer/HBoxContainer/ContainerLeft/Unit/Content"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "Time and date of pic goes here"
+
+[node name="DivRight" type="ColorRect" parent="PanelContainer/BookContainer/ContentContainer/PanelContainer/HBoxContainer/ContainerLeft/Unit"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="MiddleDiv" type="ColorRect" parent="PanelContainer/BookContainer/ContentContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+color = Color(0.50992364, 0.3839819, 0.26626533, 0.3019608)
+
+[node name="ContainerRight" type="GridContainer" parent="PanelContainer/BookContainer/ContentContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 2
+
 [node name="Next" type="TextureButton" parent="PanelContainer/BookContainer/ContentContainer"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 texture_normal = ExtResource("5_hw8ob")
+texture_pressed = ExtResource("7_ydywh")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="ColorRect" type="ColorRect" parent="PanelContainer/BookContainer"]
+[node name="BottomDiv" type="ColorRect" parent="PanelContainer/BookContainer"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 mouse_filter = 2
@@ -150,3 +212,5 @@ color = Color(1, 1, 1, 0)
 libraries = {
 &"blur": SubResource("AnimationLibrary_j4q1g")
 }
+
+[connection signal="pressed" from="PanelContainer/BookContainer/TopBarContainer/Back" to="." method="_on_back_pressed"]
