@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dmnrjisvbh3f2"]
+[gd_scene load_steps=12 format=3 uid="uid://dmnrjisvbh3f2"]
 
 [ext_resource type="Texture2D" uid="uid://tn7nnv1teg68" path="res://raw_assets/unnamed.png" id="1_ibkli"]
 [ext_resource type="Script" uid="uid://wp4bxhujcbjw" path="res://scenes/game/game.gd" id="1_qbsmt"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b4snu3q5qf1ej" path="res://scenes/hud/HUD.tscn" id="3_365ku"]
 [ext_resource type="Script" uid="uid://1qnw58u527ue" path="res://scenes/game/animal_handler.gd" id="3_lyhax"]
 [ext_resource type="PackedScene" uid="uid://b47f3tc3t7m22" path="res://scenes/animals/Jackrabbit.tscn" id="4_lyhax"]
+[ext_resource type="Script" uid="uid://cjr2su04vk3dv" path="res://scenes/game/camera_2d.gd" id="7_gg4pt"]
 
 [sub_resource type="Animation" id="Animation_15ccc"]
 length = 0.001
@@ -90,15 +91,6 @@ texture = ExtResource("1_ibkli")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="HUD" parent="." instance=ExtResource("3_365ku")]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_bottom = 0.0
-offset_left = 1151.0
-offset_right = 1151.0
-grow_horizontal = 0
-grow_vertical = 1
-
 [node name="AnimalHandler" type="Node2D" parent="."]
 script = ExtResource("3_lyhax")
 
@@ -120,5 +112,25 @@ rotation = 3.1148431
 [node name="RabbitTimer" type="Timer" parent="AnimalHandler/Rabbit"]
 process_callback = 0
 one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+limit_left = -100
+limit_top = -100
+limit_right = 500
+limit_bottom = 300
+editor_draw_limits = true
+script = ExtResource("7_gg4pt")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("3_365ku")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_bottom = 0.0
+offset_left = -1.0
+offset_right = -1.0
+grow_horizontal = 0
+grow_vertical = 1
 
 [connection signal="timeout" from="AnimalHandler/Rabbit/RabbitTimer" to="AnimalHandler/Rabbit" method="_on_rabbit_timer_timeout"]

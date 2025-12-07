@@ -9,7 +9,7 @@ var current_gui_scene
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	global.main = self
-	current_gui_scene = $GUI/MainMenu
+	current_gui_scene = $CanvasLayer/GUI/MainMenu
 	# print("I am %s and my gui is " % get_path(), gui)
 
 func change_gui_scene(new_scene: String) -> void:

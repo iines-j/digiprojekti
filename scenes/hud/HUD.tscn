@@ -126,4 +126,5 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[connection signal="pressed" from="PanelContainer/HBoxContainer/Camera" to="." method="_on_camera_pressed"]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/Journal" to="." method="_on_journal_pressed"]

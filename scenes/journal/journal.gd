@@ -1,6 +1,5 @@
 extends Control
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# $AnimationPlayer.play("RESET")
@@ -14,14 +13,11 @@ func resume():
 	get_tree().paused = false
 	$AnimationPlayer.play_backwards("blur")
 	await $AnimationPlayer.animation_finished  
-
 	
 func pause():
 	get_tree().paused = true
 	$AnimationPlayer.play("blur/blur 2")
 	
-	# on back btn set paused to false!
-
 func _on_back_pressed() -> void:
 	global.main.change_gui_scene("res://scenes/pause_menu/PauseMenu.tscn")
 	get_tree().paused = false
