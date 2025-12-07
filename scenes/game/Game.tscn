@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dmnrjisvbh3f2"]
+[gd_scene load_steps=11 format=3 uid="uid://dmnrjisvbh3f2"]
 
 [ext_resource type="Texture2D" uid="uid://tn7nnv1teg68" path="res://raw_assets/unnamed.png" id="1_ibkli"]
 [ext_resource type="Script" uid="uid://wp4bxhujcbjw" path="res://scenes/game/game.gd" id="1_qbsmt"]
 [ext_resource type="Script" uid="uid://d2pswju2bn6cj" path="res://scenes/game/rabbit.gd" id="3_7qcb4"]
+[ext_resource type="PackedScene" uid="uid://b4snu3q5qf1ej" path="res://scenes/hud/HUD.tscn" id="3_365ku"]
 [ext_resource type="Script" uid="uid://1qnw58u527ue" path="res://scenes/game/animal_handler.gd" id="3_lyhax"]
 [ext_resource type="PackedScene" uid="uid://b47f3tc3t7m22" path="res://scenes/animals/Jackrabbit.tscn" id="4_lyhax"]
 
@@ -88,6 +89,15 @@ grow_vertical = 2
 texture = ExtResource("1_ibkli")
 expand_mode = 2
 stretch_mode = 5
+
+[node name="HUD" parent="." instance=ExtResource("3_365ku")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_bottom = 0.0
+offset_left = 1151.0
+offset_right = 1151.0
+grow_horizontal = 0
+grow_vertical = 1
 
 [node name="AnimalHandler" type="Node2D" parent="."]
 script = ExtResource("3_lyhax")
