@@ -31,7 +31,7 @@ _data = {
 &"blur 2": ExtResource("3_s630r")
 }
 
-[node name="Journal" type="Control"]
+[node name="Journal" type="Control" node_paths=PackedStringArray("entry1", "text1", "entry2", "text2", "entry3", "text3", "entry4", "text4")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -40,6 +40,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gc37l")
+entry1 = NodePath("PanelContainer/BookContainer/ContentContainer/MainContentContainer/HBoxContainer/ContainerLeft/Entry1/ImageContainer/Image1")
+text1 = NodePath("PanelContainer/BookContainer/ContentContainer/MainContentContainer/HBoxContainer/ContainerLeft/Entry1/TimeLabel1")
+entry2 = NodePath("PanelContainer/BookContainer/ContentContainer/MainContentContainer/HBoxContainer/ContainerLeft/Entry2/ImageContainer/Image")
+text2 = NodePath("PanelContainer/BookContainer/ContentContainer/MainContentContainer/HBoxContainer/ContainerLeft/Entry2/TimeLabel")
+entry3 = NodePath("PanelContainer/BookContainer/ContentContainer/MainContentContainer/HBoxContainer/ContainerRight/Entry3/ImageContainer/Image1")
+text3 = NodePath("PanelContainer/BookContainer/ContentContainer/MainContentContainer/HBoxContainer/ContainerRight/Entry3/TimeLabel1")
+entry4 = NodePath("PanelContainer/BookContainer/ContentContainer/MainContentContainer/HBoxContainer/ContainerRight/Entry4/ImageContainer/Image")
+text4 = NodePath("PanelContainer/BookContainer/ContentContainer/MainContentContainer/HBoxContainer/ContainerRight/Entry4/TimeLabel")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_ig36j")
@@ -58,9 +66,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -533.0
-offset_top = -262.5
+offset_top = -276.0
 offset_right = 533.0
-offset_bottom = 300.5
+offset_bottom = 306.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_ig36j")
@@ -121,7 +129,12 @@ text = "Back"
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Previous" type="TextureButton" parent="PanelContainer/BookContainer/ContentContainer"]
+[node name="BtnContainer" type="PanelContainer" parent="PanelContainer/BookContainer/ContentContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[node name="Previous" type="TextureButton" parent="PanelContainer/BookContainer/ContentContainer/BtnContainer"]
+visible = false
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 texture_normal = ExtResource("4_j4q1g")
@@ -129,76 +142,200 @@ texture_pressed = ExtResource("5_wybpv")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/BookContainer/ContentContainer"]
+[node name="MainContentContainer" type="PanelContainer" parent="PanelContainer/BookContainer/ContentContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Panel" type="Panel" parent="PanelContainer/BookContainer/ContentContainer/PanelContainer"]
+[node name="Panel" type="Panel" parent="PanelContainer/BookContainer/ContentContainer/MainContentContainer"]
 custom_minimum_size = Vector2(400, 200)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = SubResource("Theme_ydywh")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/BookContainer/ContentContainer/PanelContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/BookContainer/ContentContainer/MainContentContainer"]
 layout_mode = 2
 
-[node name="ContainerLeft" type="GridContainer" parent="PanelContainer/BookContainer/ContentContainer/PanelContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-columns = 2
-
-[node name="Unit" type="HBoxContainer" parent="PanelContainer/BookContainer/ContentContainer/PanelContainer/HBoxContainer/ContainerLeft"]
+[node name="ContainerLeft" type="GridContainer" parent="PanelContainer/BookContainer/ContentContainer/MainContentContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
 
-[node name="DivLeft" type="ColorRect" parent="PanelContainer/BookContainer/ContentContainer/PanelContainer/HBoxContainer/ContainerLeft/Unit"]
-custom_minimum_size = Vector2(10, 0)
+[node name="DivTop" type="ColorRect" parent="PanelContainer/BookContainer/ContentContainer/MainContentContainer/HBoxContainer/ContainerLeft"]
+custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 mouse_filter = 2
 color = Color(1, 1, 1, 0)
 
-[node name="Content" type="VBoxContainer" parent="PanelContainer/BookContainer/ContentContainer/PanelContainer/HBoxContainer/ContainerLeft/Unit"]
+[node name="Entry1" type="VBoxContainer" parent="PanelContainer/BookContainer/ContentContainer/MainContentContainer/HBoxContainer/ContainerLeft"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="TopDiv" type="ColorRect" parent="PanelContainer/BookContainer/ContentContainer/PanelContainer/HBoxContainer/ContainerLeft/Unit/Content"]
+[node name="TopDiv" type="ColorRect" parent="PanelContainer/BookContainer/ContentContainer/MainContentContainer/HBoxContainer/ContainerLeft/Entry1"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 mouse_filter = 2
 color = Color(1, 1, 1, 0)
 
-[node name="Image" type="AspectRatioContainer" parent="PanelContainer/BookContainer/ContentContainer/PanelContainer/HBoxContainer/ContainerLeft/Unit/Content"]
+[node name="ImageContainer" type="AspectRatioContainer" parent="PanelContainer/BookContainer/ContentContainer/MainContentContainer/HBoxContainer/ContainerLeft/Entry1"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/BookContainer/ContentContainer/PanelContainer/HBoxContainer/ContainerLeft/Unit/Content/Image"]
+[node name="ColorRect" type="ColorRect" parent="PanelContainer/BookContainer/ContentContainer/MainContentContainer/HBoxContainer/ContainerLeft/Entry1/ImageContainer"]
+custom_minimum_size = Vector2(280, 0)
 layout_mode = 2
+color = Color(0.2558885, 0.2558885, 0.2558885, 0.44705883)
 
-[node name="TimeLabel" type="RichTextLabel" parent="PanelContainer/BookContainer/ContentContainer/PanelContainer/HBoxContainer/ContainerLeft/Unit/Content"]
-custom_minimum_size = Vector2(50, 50)
+[node name="Image1" type="TextureRect" parent="PanelContainer/BookContainer/ContentContainer/MainContentContainer/HBoxContainer/ContainerLeft/Entry1/ImageContainer"]
+custom_minimum_size = Vector2(400, 200)
 layout_mode = 2
-text = "Time and date of pic goes here"
+expand_mode = 1
+stretch_mode = 5
 
-[node name="DivRight" type="ColorRect" parent="PanelContainer/BookContainer/ContentContainer/PanelContainer/HBoxContainer/ContainerLeft/Unit"]
-custom_minimum_size = Vector2(10, 0)
+[node name="TimeLabel1" type="RichTextLabel" parent="PanelContainer/BookContainer/ContentContainer/MainContentContainer/HBoxContainer/ContainerLeft/Entry1"]
+custom_minimum_size = Vector2(250, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "???"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Entry2" type="VBoxContainer" parent="PanelContainer/BookContainer/ContentContainer/MainContentContainer/HBoxContainer/ContainerLeft"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TopDiv" type="ColorRect" parent="PanelContainer/BookContainer/ContentContainer/MainContentContainer/HBoxContainer/ContainerLeft/Entry2"]
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 mouse_filter = 2
 color = Color(1, 1, 1, 0)
 
-[node name="MiddleDiv" type="ColorRect" parent="PanelContainer/BookContainer/ContentContainer/PanelContainer/HBoxContainer"]
+[node name="ImageContainer" type="AspectRatioContainer" parent="PanelContainer/BookContainer/ContentContainer/MainContentContainer/HBoxContainer/ContainerLeft/Entry2"]
+layout_mode = 2
+
+[node name="ColorRect2" type="ColorRect" parent="PanelContainer/BookContainer/ContentContainer/MainContentContainer/HBoxContainer/ContainerLeft/Entry2/ImageContainer"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+color = Color(0.2558885, 0.2558885, 0.2558885, 0.44705883)
+
+[node name="Image" type="TextureRect" parent="PanelContainer/BookContainer/ContentContainer/MainContentContainer/HBoxContainer/ContainerLeft/Entry2/ImageContainer"]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TimeLabel" type="RichTextLabel" parent="PanelContainer/BookContainer/ContentContainer/MainContentContainer/HBoxContainer/ContainerLeft/Entry2"]
+custom_minimum_size = Vector2(250, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "???"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DivBottom" type="ColorRect" parent="PanelContainer/BookContainer/ContentContainer/MainContentContainer/HBoxContainer/ContainerLeft"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+
+[node name="MiddleDiv" type="ColorRect" parent="PanelContainer/BookContainer/ContentContainer/MainContentContainer/HBoxContainer"]
 custom_minimum_size = Vector2(5, 0)
 layout_mode = 2
 mouse_filter = 2
 color = Color(0.50992364, 0.3839819, 0.26626533, 0.3019608)
 
-[node name="ContainerRight" type="GridContainer" parent="PanelContainer/BookContainer/ContentContainer/PanelContainer/HBoxContainer"]
+[node name="ContainerRight" type="GridContainer" parent="PanelContainer/BookContainer/ContentContainer/MainContentContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-columns = 2
 
-[node name="Next" type="TextureButton" parent="PanelContainer/BookContainer/ContentContainer"]
+[node name="DivTop" type="ColorRect" parent="PanelContainer/BookContainer/ContentContainer/MainContentContainer/HBoxContainer/ContainerRight"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Entry3" type="VBoxContainer" parent="PanelContainer/BookContainer/ContentContainer/MainContentContainer/HBoxContainer/ContainerRight"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TopDiv" type="ColorRect" parent="PanelContainer/BookContainer/ContentContainer/MainContentContainer/HBoxContainer/ContainerRight/Entry3"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+
+[node name="ImageContainer" type="AspectRatioContainer" parent="PanelContainer/BookContainer/ContentContainer/MainContentContainer/HBoxContainer/ContainerRight/Entry3"]
+layout_mode = 2
+
+[node name="ColorRect3" type="ColorRect" parent="PanelContainer/BookContainer/ContentContainer/MainContentContainer/HBoxContainer/ContainerRight/Entry3/ImageContainer"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+color = Color(0.2558885, 0.2558885, 0.2558885, 0.44705883)
+
+[node name="Image1" type="TextureRect" parent="PanelContainer/BookContainer/ContentContainer/MainContentContainer/HBoxContainer/ContainerRight/Entry3/ImageContainer"]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TimeLabel1" type="RichTextLabel" parent="PanelContainer/BookContainer/ContentContainer/MainContentContainer/HBoxContainer/ContainerRight/Entry3"]
+custom_minimum_size = Vector2(250, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "???"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Entry4" type="VBoxContainer" parent="PanelContainer/BookContainer/ContentContainer/MainContentContainer/HBoxContainer/ContainerRight"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TopDiv" type="ColorRect" parent="PanelContainer/BookContainer/ContentContainer/MainContentContainer/HBoxContainer/ContainerRight/Entry4"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+
+[node name="ImageContainer" type="AspectRatioContainer" parent="PanelContainer/BookContainer/ContentContainer/MainContentContainer/HBoxContainer/ContainerRight/Entry4"]
+layout_mode = 2
+
+[node name="ColorRect4" type="ColorRect" parent="PanelContainer/BookContainer/ContentContainer/MainContentContainer/HBoxContainer/ContainerRight/Entry4/ImageContainer"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+color = Color(0.2558885, 0.2558885, 0.2558885, 0.44705883)
+
+[node name="Image" type="TextureRect" parent="PanelContainer/BookContainer/ContentContainer/MainContentContainer/HBoxContainer/ContainerRight/Entry4/ImageContainer"]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TimeLabel" type="RichTextLabel" parent="PanelContainer/BookContainer/ContentContainer/MainContentContainer/HBoxContainer/ContainerRight/Entry4"]
+custom_minimum_size = Vector2(250, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "???"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DivBottom" type="ColorRect" parent="PanelContainer/BookContainer/ContentContainer/MainContentContainer/HBoxContainer/ContainerRight"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+
+[node name="BtnContainer2" type="PanelContainer" parent="PanelContainer/BookContainer/ContentContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[node name="Next" type="TextureButton" parent="PanelContainer/BookContainer/ContentContainer/BtnContainer2"]
+visible = false
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 texture_normal = ExtResource("5_hw8ob")
