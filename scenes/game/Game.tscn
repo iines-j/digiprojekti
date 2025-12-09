@@ -1,7 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://dmnrjisvbh3f2"]
+[gd_scene load_steps=29 format=3 uid="uid://dmnrjisvbh3f2"]
 
 [ext_resource type="Texture2D" uid="uid://tn7nnv1teg68" path="res://raw_assets/unnamed.png" id="1_ibkli"]
 [ext_resource type="Script" uid="uid://wp4bxhujcbjw" path="res://scenes/game/game.gd" id="1_qbsmt"]
+[ext_resource type="Texture2D" uid="uid://y4ghg5oprov2" path="res://raw_assets/nature_area_1/Layer8.png" id="2_pbrru"]
 [ext_resource type="Script" uid="uid://d2pswju2bn6cj" path="res://scenes/game/rabbit.gd" id="3_7qcb4"]
 [ext_resource type="PackedScene" uid="uid://b4snu3q5qf1ej" path="res://scenes/hud/HUD.tscn" id="3_365ku"]
 [ext_resource type="Texture2D" uid="uid://c5ic6w7q15vhw" path="res://raw_assets/nature_area_1/ground.png" id="3_aptqa"]
@@ -13,9 +14,15 @@
 [ext_resource type="PackedScene" uid="uid://b0ir7bhnmqyil" path="res://scenes/game/sprites/Tree.tscn" id="5_aptqa"]
 [ext_resource type="Script" uid="uid://cjr2su04vk3dv" path="res://scenes/game/camera_2d.gd" id="7_gg4pt"]
 [ext_resource type="Texture2D" uid="uid://dc6kdwkd2ylnr" path="res://raw_assets/photoview.png" id="7_wnrko"]
+[ext_resource type="PackedScene" uid="uid://blc8hopw0gl1w" path="res://scenes/game/sprites/ReedsRight.tscn" id="8_7st5e"]
+[ext_resource type="Texture2D" uid="uid://dnjkq0qxw6klu" path="res://raw_assets/nature_area_1/dirt.png" id="9_ysuoy"]
+[ext_resource type="Texture2D" uid="uid://44hii4wrnvdh" path="res://raw_assets/nature_area_1/rock1.png" id="10_6k07o"]
 [ext_resource type="Script" uid="uid://h05tf622dhpg" path="res://scenes/game/weather_handler.gd" id="11_2iokk"]
 [ext_resource type="PackedScene" uid="uid://mrpiiwbr15yd" path="res://scenes/game/weather/FogEffect.tscn" id="11_5xhyk"]
+[ext_resource type="Texture2D" uid="uid://dtrtjorup4btk" path="res://raw_assets/nature_area_1/bush.png" id="11_7st5e"]
+[ext_resource type="PackedScene" uid="uid://dns276quy136i" path="res://scenes/game/sprites/ReedsLeft.tscn" id="11_olhyc"]
 [ext_resource type="PackedScene" uid="uid://cfg4adnk4ac87" path="res://scenes/game/weather/RainEffect.tscn" id="12_vg8p7"]
+[ext_resource type="Texture2D" uid="uid://griqu7yhlrb2" path="res://raw_assets/nature_area_1/rock2.png" id="13_ib0i5"]
 
 [sub_resource type="Animation" id="Animation_15ccc"]
 length = 0.001
@@ -95,6 +102,28 @@ offset_right = 25.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.6901961, 0.9098039, 1, 1)
+metadata/_edit_lock_ = true
+
+[node name="BgMounds" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_left = 583.0
+offset_top = -6.9999695
+offset_right = 1251.0
+offset_bottom = 397.00003
+texture = ExtResource("2_pbrru")
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="BgMounds2" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 14.0000305
+offset_right = 656.0
+offset_bottom = 333.00003
+texture = ExtResource("2_pbrru")
+stretch_mode = 5
+flip_h = true
+metadata/_edit_lock_ = true
 
 [node name="BgPic" type="TextureRect" parent="Background"]
 visible = false
@@ -116,6 +145,7 @@ offset_top = 191.00003
 offset_right = 1221.0
 offset_bottom = 731.0
 texture = ExtResource("3_aptqa")
+metadata/_edit_lock_ = true
 
 [node name="OakStill" type="TextureRect" parent="Background"]
 layout_mode = 0
@@ -146,6 +176,7 @@ offset_bottom = 306.00003
 texture = ExtResource("4_5xhyk")
 expand_mode = 1
 stretch_mode = 5
+metadata/_edit_lock_ = true
 
 [node name="Tree4" parent="Background" instance=ExtResource("5_aptqa")]
 position = Vector2(216, 212.00003)
@@ -157,14 +188,67 @@ position = Vector2(1092, 147.00003)
 position = Vector2(35.000004, 277.00006)
 scale = Vector2(1.3, 1.3)
 
+[node name="ReedsRight2" parent="Background" instance=ExtResource("8_7st5e")]
+position = Vector2(667, 208.00003)
+
 [node name="Pond" parent="Background" instance=ExtResource("5_60iot")]
 position = Vector2(888, 491.00003)
+metadata/_edit_lock_ = true
+
+[node name="Dirt" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_left = 623.0
+offset_top = 441.00003
+offset_right = 937.0
+offset_bottom = 679.0
+texture = ExtResource("9_ysuoy")
+metadata/_edit_lock_ = true
+
+[node name="ReedsLeft2" parent="Background" instance=ExtResource("11_olhyc")]
+position = Vector2(532, 286.00003)
+
+[node name="Rock1" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_left = 505.0
+offset_top = 377.00003
+offset_right = 643.0
+offset_bottom = 453.00003
+texture = ExtResource("10_6k07o")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Rock2" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_left = 880.0
+offset_top = 590.0
+offset_right = 1018.0
+offset_bottom = 666.0
+texture = ExtResource("10_6k07o")
+expand_mode = 1
+stretch_mode = 5
+flip_h = true
+
+[node name="RockB" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_left = 590.0
+offset_top = 406.00003
+offset_right = 707.0
+offset_bottom = 477.0
+texture = ExtResource("13_ib0i5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect8" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="AnimalHandler" type="Node2D" parent="."]
 script = ExtResource("3_lyhax")
 
 [node name="Rabbit" type="Node2D" parent="AnimalHandler"]
 script = ExtResource("3_7qcb4")
+metadata/_edit_lock_ = true
 
 [node name="RabbitPath" type="Path2D" parent="AnimalHandler/Rabbit"]
 curve = SubResource("Curve2D_365ku")
@@ -187,6 +271,27 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+metadata/_edit_lock_ = true
+
+[node name="Bush1" type="TextureRect" parent="Foreground"]
+layout_mode = 0
+offset_left = 928.0
+offset_top = 441.0
+offset_right = 1357.0
+offset_bottom = 723.0
+texture = ExtResource("11_7st5e")
+stretch_mode = 5
+
+[node name="Bush2" type="TextureRect" parent="Foreground"]
+layout_mode = 0
+offset_left = -92.0
+offset_top = 415.0
+offset_right = 337.0
+offset_bottom = 697.0
+texture = ExtResource("11_7st5e")
+stretch_mode = 5
+flip_h = true
+metadata/_edit_lock_ = true
 
 [node name="WeatherHandler" type="Node2D" parent="." node_paths=PackedStringArray("fog", "rain")]
 script = ExtResource("11_2iokk")
@@ -230,6 +335,7 @@ offset_right = 866.0
 offset_bottom = 531.0
 mouse_filter = 2
 color = Color(1, 1, 1, 0)
+metadata/_edit_lock_ = true
 
 [node name="CameraOverlay" type="HBoxContainer" parent="CanvasLayer"]
 process_mode = 3

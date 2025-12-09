@@ -1,6 +1,7 @@
 extends Control
 
 @export var coin_label : Label
+@export var pause_label : RichTextLabel
 var camera
 
 func _ready() -> void:
@@ -10,6 +11,11 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	coin_label.text = str(Player.coins)
+	
+	if Screenshot.allowed_to_screenshot:
+		pause_label.show()
+	else:
+		pause_label.hide()
 	
 
 func _on_journal_pressed() -> void:

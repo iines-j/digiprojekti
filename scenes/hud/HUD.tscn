@@ -41,7 +41,7 @@ RichTextLabel/font_sizes/normal_font_size = 12
 RichTextLabel/styles/background = SubResource("StyleBoxFlat_6lywo")
 RichTextLabel/styles/normal = SubResource("StyleBoxFlat_6lywo")
 
-[node name="HUD" type="Control" node_paths=PackedStringArray("coin_label")]
+[node name="HUD" type="Control" node_paths=PackedStringArray("coin_label", "pause_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -51,6 +51,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 script = ExtResource("1_dui1j")
 coin_label = NodePath("PanelContainer/HBoxContainer/CoinsContainer/Coins/CoinsAmount")
+pause_label = NodePath("PanelContainer/HBoxContainer/Space")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -115,7 +116,20 @@ texture_pressed = ExtResource("4_se64a")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/HBoxContainer"]
+[node name="Space" type="RichTextLabel" parent="PanelContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(90, 40)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme = SubResource("Theme_dui1j")
+text = "SPACE
+to take picture"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Esc" type="RichTextLabel" parent="PanelContainer/HBoxContainer"]
 custom_minimum_size = Vector2(70, 40)
 layout_mode = 2
 size_flags_horizontal = 6

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dns276quy136i"]
+
+[ext_resource type="Shader" uid="uid://coyu87jsg8y1p" path="res://scenes/game/sprites/Tree2.gdshader" id="1_v6fd0"]
+[ext_resource type="Texture2D" uid="uid://uxqoctqaa6vy" path="res://raw_assets/nature_area_1/reeds left.png" id="2_rupar"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_831ro"]
+shader = ExtResource("1_v6fd0")
+shader_parameter/speed = 1.0
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.01
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 0.0
+shader_parameter/offset = 0.0
+
+[node name="ReedsLeft" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_831ro")
+texture = ExtResource("2_rupar")

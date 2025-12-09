@@ -18,6 +18,7 @@ func _process(delta: float) -> void:
 		path_follow.progress += speed * delta
 	
 	# wait
+	# replace w area entered
 	if path_follow.progress >= 434 && path_follow.progress <= 438 && called == false:
 		called = true
 		_wait()
@@ -25,7 +26,6 @@ func _process(delta: float) -> void:
 	if path_follow.progress >= 1200 && paused == false: # if exited screen
 		paused = true
 		await get_tree().create_timer(1.0).timeout
-		print("Pauseeeeeeee")
 		_pause()
 	
 func _start():
