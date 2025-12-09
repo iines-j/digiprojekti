@@ -1,32 +1,70 @@
-[gd_scene load_steps=3 format=3 uid="uid://cfg4adnk4ac87"]
+[gd_scene load_steps=5 format=3 uid="uid://cfg4adnk4ac87"]
 
 [ext_resource type="Texture2D" uid="uid://chono07tnf777" path="res://scenes/game/weather/rain.png" id="1_yapjb"]
 
-[sub_resource type="Gradient" id="Gradient_hukn1"]
-offsets = PackedFloat32Array(0.1780822, 1)
-colors = PackedColorArray(0.7476796, 0.7476796, 0.7476796, 1, 0.7309131, 0.7309131, 0.73091304, 1)
+[sub_resource type="Animation" id="Animation_l7v8r"]
+resource_name = "fade"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CPUParticles2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_myrm4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CPUParticles2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_njeu3"]
+_data = {
+&"RESET": SubResource("Animation_myrm4"),
+&"fade": SubResource("Animation_l7v8r")
+}
 
 [node name="RainEffect" type="Node2D"]
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-position = Vector2(566, 134)
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(583.99994, 35.999985)
 rotation = -0.05683826
-amount = 27
+amount = 80
 texture = ExtResource("1_yapjb")
 lifetime = 1.2
 preprocess = 2.0
 speed_scale = 3.0
 local_coords = true
 emission_shape = 3
-emission_rect_extents = Vector2(1000, 500)
+emission_rect_extents = Vector2(700, 500)
 direction = Vector2(0, 1)
 spread = 0.0
 initial_velocity_min = 20.0
 initial_velocity_max = 200.0
-scale_amount_min = 0.1
-scale_amount_max = 0.6
+scale_amount_min = 0.03
+scale_amount_max = 0.2
 split_scale = true
 scale_curve_x = null
 scale_curve_y = null
-color = Color(0.446777, 0.44677705, 0.44677705, 1)
-color_ramp = SubResource("Gradient_hukn1")
+color = Color(1, 1, 1, 0.40784314)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_njeu3")
+}

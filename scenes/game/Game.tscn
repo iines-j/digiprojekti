@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dmnrjisvbh3f2"]
+[gd_scene load_steps=22 format=3 uid="uid://dmnrjisvbh3f2"]
 
 [ext_resource type="Texture2D" uid="uid://tn7nnv1teg68" path="res://raw_assets/unnamed.png" id="1_ibkli"]
 [ext_resource type="Script" uid="uid://wp4bxhujcbjw" path="res://scenes/game/game.gd" id="1_qbsmt"]
@@ -13,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://b0ir7bhnmqyil" path="res://scenes/game/sprites/Tree.tscn" id="5_aptqa"]
 [ext_resource type="Script" uid="uid://cjr2su04vk3dv" path="res://scenes/game/camera_2d.gd" id="7_gg4pt"]
 [ext_resource type="Texture2D" uid="uid://dc6kdwkd2ylnr" path="res://raw_assets/photoview.png" id="7_wnrko"]
+[ext_resource type="Script" uid="uid://h05tf622dhpg" path="res://scenes/game/weather_handler.gd" id="11_2iokk"]
+[ext_resource type="PackedScene" uid="uid://mrpiiwbr15yd" path="res://scenes/game/weather/FogEffect.tscn" id="11_5xhyk"]
+[ext_resource type="PackedScene" uid="uid://cfg4adnk4ac87" path="res://scenes/game/weather/RainEffect.tscn" id="12_vg8p7"]
 
 [sub_resource type="Animation" id="Animation_15ccc"]
 length = 0.001
@@ -63,7 +66,7 @@ size = Vector2(359, 235)
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("day_cycle")]
 script = ExtResource("1_qbsmt")
-day_cycle = NodePath("Background/Cycle2/AnimationPlayer")
+day_cycle = NodePath("Background/DayNightCycle/AnimationPlayer")
 
 [node name="Background" type="Control" parent="."]
 layout_mode = 3
@@ -72,25 +75,29 @@ offset_top = -3.0517578e-05
 offset_right = 1151.0
 offset_bottom = 647.0
 
-[node name="Cycle2" type="CanvasModulate" parent="Background"]
+[node name="DayNightCycle" type="CanvasModulate" parent="Background"]
 position = Vector2(0, -3.0517578e-05)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/Cycle2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/DayNightCycle"]
 libraries = {
 &"": SubResource("AnimationLibrary_xs462")
 }
 speed_scale = 0.5
 
-[node name="ColorRect" type="ColorRect" parent="Background"]
+[node name="SkyColor" type="ColorRect" parent="Background"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -18.0
+offset_top = -95.99997
+offset_right = 25.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.6901961, 0.9098039, 1, 1)
 
 [node name="BgPic" type="TextureRect" parent="Background"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -105,7 +112,7 @@ stretch_mode = 5
 [node name="Ground" type="TextureRect" parent="Background"]
 layout_mode = 0
 offset_left = -66.0
-offset_top = 226.00003
+offset_top = 191.00003
 offset_right = 1221.0
 offset_bottom = 731.0
 texture = ExtResource("3_aptqa")
@@ -141,7 +148,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Tree4" parent="Background" instance=ExtResource("5_aptqa")]
-position = Vector2(207, 192.00003)
+position = Vector2(216, 212.00003)
 
 [node name="Tree5" parent="Background" instance=ExtResource("5_aptqa")]
 position = Vector2(1092, 147.00003)
@@ -180,6 +187,21 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="WeatherHandler" type="Node2D" parent="." node_paths=PackedStringArray("fog", "rain")]
+script = ExtResource("11_2iokk")
+fog = NodePath("FogEffect")
+rain = NodePath("RainEffect")
+
+[node name="WeatherTimer" type="Timer" parent="WeatherHandler"]
+
+[node name="RainEffect" parent="WeatherHandler" instance=ExtResource("12_vg8p7")]
+visible = false
+
+[node name="FogEffect" parent="WeatherHandler" instance=ExtResource("11_5xhyk")]
+visible = false
+modulate = Color(1, 1, 1, 0.627451)
+position = Vector2(0, -10)
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("camera_overlay")]
 process_mode = 3
@@ -244,3 +266,4 @@ shadow_color = Color(0, 0, 0, 0.7254902)
 height = 1.0
 
 [connection signal="timeout" from="AnimalHandler/Rabbit/RabbitTimer" to="AnimalHandler/Rabbit" method="_on_rabbit_timer_timeout"]
+[connection signal="timeout" from="WeatherHandler/WeatherTimer" to="WeatherHandler" method="_on_weather_timer_timeout"]
