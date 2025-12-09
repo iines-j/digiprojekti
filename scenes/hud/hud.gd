@@ -1,13 +1,16 @@
 extends Control
-# Called when the node enters the scene tree for the first time.
+
+@export var coin_label : Label
 var camera
 
 func _ready() -> void:
+	SignalBus.coins_changed.connect(add_coins)
 	camera = get_viewport().get_camera_2d()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	coin_label.text = str(Player.coins)
+	
 
 func _on_journal_pressed() -> void:
 	camera.in_use = false
@@ -20,5 +23,8 @@ func _on_camera_pressed() -> void:
 	else:
 		camera.in_use = true
 
-	
+func add_coins():
+	Player.coins += Player.coins_add_amount
+
+
 	

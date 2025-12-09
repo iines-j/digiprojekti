@@ -22,6 +22,7 @@ AnimalTimers="*res://globals/animal_timers.gd"
 SignalBus="*res://globals/signal_bus.gd"
 Screenshot="*res://globals/screenshot.gd"
 JournalEntries="*res://globals/journal_entries.gd"
+Player="*res://globals/player.gd"
 
 [display]
 

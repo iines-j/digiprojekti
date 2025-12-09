@@ -9,6 +9,7 @@ var screen_y = 648
 @export var overlay : TextureRect
 @export var hud : Control
 var pos
+var mouse_pos
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,9 +18,12 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed('screenshot') && allowed_to_screenshot:
+		
+		SignalBus.coins_changed.emit()
+	
 		overlay.hide()
 		hud.hide()
-		await RenderingServer.frame_post_draw
+		await RenderingServer.frame_post_draw # wait for frame drawn before taking screenshot
 	
 		var tex = get_viewport().get_texture()
 		var img = tex.get_image()
@@ -35,9 +39,10 @@ func save_info(texture):
 	JournalEntries.changed = true
 	var time = Time.get_datetime_dict_from_system()
 	var date = str(time.day) + "." + str(time.month) + "." + str(time.year)
-	var timestr = str("%02d:%02d" % [time.hour, time.minute])
+	var timestr = str("%02d:%02d:%02d" % [time.hour, time.minute, time.second])
 	entry.time = timestr + " " + date
 	
+	# loop journal entries and rewrite data
 	if n < 3:
 		n += 1
 	else:

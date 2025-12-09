@@ -1,9 +1,11 @@
 extends Node2D
 
+@export var day_cycle : AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	day_cycle.play("sun_cycle")
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

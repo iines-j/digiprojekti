@@ -33,6 +33,8 @@ func camera_update():
 	var pos = get_local_mouse_position()
 	if pos.x >= -2000 && pos.x < 2000:
 		set_position(pos)
+		Screenshot.mouse_pos = pos
 		Screenshot.pos = $"../CanvasLayer/TargetView".global_position
 		
+
 	

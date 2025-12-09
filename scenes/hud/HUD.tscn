@@ -41,7 +41,7 @@ RichTextLabel/font_sizes/normal_font_size = 12
 RichTextLabel/styles/background = SubResource("StyleBoxFlat_6lywo")
 RichTextLabel/styles/normal = SubResource("StyleBoxFlat_6lywo")
 
-[node name="HUD" type="Control"]
+[node name="HUD" type="Control" node_paths=PackedStringArray("coin_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -50,6 +50,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 script = ExtResource("1_dui1j")
+coin_label = NodePath("PanelContainer/HBoxContainer/CoinsContainer/Coins/CoinsAmount")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1

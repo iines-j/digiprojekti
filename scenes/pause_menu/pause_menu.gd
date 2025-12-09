@@ -1,6 +1,9 @@
 extends Control
 
+var camera
+
 func _ready():
+	camera = get_viewport().get_camera_2d()
 	$AnimationPlayer.play("RESET")
 	self.hide()
 
@@ -11,6 +14,7 @@ func resume():
 	self.hide()
 	
 func pause():
+	camera.in_use = false
 	get_tree().paused = true
 	$AnimationPlayer.play("blur")
 	self.show()
